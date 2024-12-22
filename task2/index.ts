@@ -1,4 +1,4 @@
-import { Salary } from "./api/interface";
+import { Salary } from "./interfaces/interface";
 
 /*
 ### **Assignment 2: Employee Salary Management**
