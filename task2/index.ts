@@ -82,16 +82,16 @@ let salaryManagementSystem: Salary[] = [
 
 //Add a new employee to the system.
 
-salaryManagementSystem.push({
-  id: 7,
-  name: "Omar Fathy",
-  position: "Backend Developer",
-  salary: 8000,
-  department: "Development",
-  fixedPercentage() {
-    this.salary *= (100 + 50) / 100;
-  },
-});
+function addItem(employee: Salary) {
+  const checkEmployee = salaryManagementSystem.find(
+    (el) => el.id === employee.id
+  );
+  if (checkEmployee) {
+    return `this employee already in the salary managment system.`;
+  }
+  salaryManagementSystem.push(employee);
+  return `employee added successfully.`;
+}
 
 //Increase the salary of an employee by id based on a percentage.
 

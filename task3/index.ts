@@ -53,12 +53,14 @@ const taskScheduler: TaskScheduler[] = [
 ];
 
 //Add a new task to the list.
-taskScheduler.push({
-  taskId: 7,
-  description: "update queries",
-  status: "in progress",
-  priority: 3,
-});
+function addNewTasks(task: TaskScheduler) {
+  const checkTask = taskScheduler.find((task) => task.taskId === task.taskId);
+  if (checkTask) {
+    return `this task already in the task scheduler.`;
+  }
+  taskScheduler.push(task);
+  return `task added successfully.`;
+}
 
 //Change the status of a task by taskId.
 function ChangeTheStatus(id: number, newStatus: status): void {

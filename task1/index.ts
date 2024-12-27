@@ -1,4 +1,4 @@
-import { product } from "./interfaces/api";
+import { product } from "./interfaces";
 
 /*
 **Concepts**: Objects, Object Methods, Array of Objects, Array Methods, Functions
@@ -14,10 +14,7 @@ Create an **inventory management system** where you can manage the stock of prod
 5. **Filter products** by category.
 */
 
-let inventoryManagementSystem: product[] = [];
-
-//Adding a new product to the inventory.
-inventoryManagementSystem.push(
+let inventoryManagementSystem: product[] = [
   {
     id: 1,
     name: "Microwave",
@@ -59,8 +56,21 @@ inventoryManagementSystem.push(
     price: 400,
     quantity: 5,
     category: "Medical Products",
+  },
+];
+
+//Adding a new product to the inventory.
+function addItem(product: product) {
+  const checkItem = inventoryManagementSystem.find(
+    (el) => el.id === product.id
+  );
+  if (checkItem) {
+    return `this product already in the cart.`;
   }
-);
+  inventoryManagementSystem.push(product);
+  return `product added successfully.`;
+}
+
 //console.log(inventoryManagementSystem);
 
 //Update the quantity of an existing product by id
